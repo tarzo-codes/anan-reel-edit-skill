@@ -1,4 +1,4 @@
-# Anan Reel Edit — Claude Code Skill
+# Bangla FinTech Reel Editor — Claude Code Skill
 
 A Claude Code skill for editing Anan's Bangla/Banglish trading & finance reels (2160x3840 @ 25fps)
 in Premiere Pro + After Effects (+ Remotion for explainers): transcription, cuts, captions, 3D camera
@@ -46,7 +46,7 @@ full edit in the chosen vibe -> Claude checks frames and the mix -> renders 80 M
 **Windows (PowerShell or Git Bash):**
 
 ```bash
-git clone https://github.com/tarzo-codes/anan-reel-edit-skill.git "$HOME/.claude/skills/anan-reel-edit"
+git clone https://github.com/tarzo-codes/bangla-fintech-reel-editor.git "$HOME/.claude/skills/anan-reel-edit"
 ```
 
 Restart Claude Code — the skill shows up as `anan-reel-edit`.
