@@ -1,6 +1,6 @@
 // build_reel.jsx - lay out one Anan reel in Premiere from a data file (made by a reel's plan .py).
 // Run in one execute_extendscript call:
-//   var BUILD_DATA = "E:/.../rN_prem.json"; $.evalFile("C:/Users/btaza/.claude/skills/anan-reel-edit/scripts/jsx/build_reel.jsx");
+//   var BUILD_DATA = "E:/.../rN_prem.json"; $.evalFile("C:/Users/btaza/.claude/skills/shorts-editor-skill/scripts/jsx/build_reel.jsx");
 // Clears the sequence, then places (track map TK below): V1 grid BG, V2 A-roll cuts (+Lumetri), V3 top cover, V9 camera
 // adjustment layers, V4 scene bases (grid copy / full-frame B-roll) with Film Impact in/out transitions, V5-V6 cards (Impact
 // Stroke + Rounded Crop, eased entry) or flying hook cards, V7 the AE text comp (Dynamic Link), V8 cut-outs, V10 overlays

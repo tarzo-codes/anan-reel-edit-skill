@@ -2,7 +2,7 @@
 png() emoji/logo pops beside the head, jump-cut cover in build_reel). Originally the 9-11-2026 plans (8-11 pattern + vibes: Extreme / Casual / Normal / Sad, extreme hooks,
 whole-track music balancing via music_curve)."""
 import sys
-sys.path.insert(0, "C:/Users/btaza/.claude/skills/anan-reel-edit/scripts")
+sys.path.insert(0, "C:/Users/btaza/.claude/skills/shorts-editor-skill/scripts")
 from reelkit import Reel, A, STY, _measure  # noqa: E402
 from aeui import step_badge, comment_ui  # noqa: E402
 from ae3d import EMERALD, GOLD, CRIMSON  # noqa: E402

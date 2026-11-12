@@ -1,7 +1,7 @@
 import re
 """Shared machinery for Anan reel plans (2025-2026 Motion-Designer 3D Spatial Canvas & FinTech Edition).
 
-    import sys; sys.path.insert(0, "C:/Users/btaza/.claude/skills/anan-reel-edit/scripts")
+    import sys; sys.path.insert(0, "C:/Users/btaza/.claude/skills/shorts-editor-skill/scripts")
     from reelkit import Reel, BEHIND, BEHIND_P
     r = Reel(1, "E:/Anan/NEW/reel 1 (2).MP4", "reel 1 (2).MP4", drop={1}, trim={7: (0, 4)})
     W, E = r.W, r.E

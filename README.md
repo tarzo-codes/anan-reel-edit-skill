@@ -46,15 +46,15 @@ full edit in the chosen vibe -> Claude checks frames and the mix -> renders 80 M
 **Windows (PowerShell or Git Bash):**
 
 ```bash
-git clone https://github.com/tarzo-codes/shorts-editor-skill.git "$HOME/.claude/skills/anan-reel-edit"
+git clone https://github.com/tarzo-codes/shorts-editor-skill.git "$HOME/.claude/skills/shorts-editor-skill"
 ```
 
-Restart Claude Code — the skill shows up as `anan-reel-edit`.
+Restart Claude Code — the skill shows up as `shorts-editor-skill`.
 
 ## Update to the latest version
 
 ```bash
-git -C "$HOME/.claude/skills/anan-reel-edit" pull
+git -C "$HOME/.claude/skills/shorts-editor-skill" pull
 ```
 
 ## Requirements

@@ -448,7 +448,7 @@ def generate_claude_master_brief(results: list[dict], out_md_path: str):
         lines.append(f"#### Ready-to-Edit `plan_{rid}.py` Starter Skeleton (3D Camera Plane & Modern FinTech Style)")
         lines.append("```python")
         lines.append("import sys")
-        lines.append("sys.path.insert(0, r'C:/Users/btaza/.claude/skills/anan-reel-edit/scripts')")
+        lines.append("sys.path.insert(0, r'C:/Users/btaza/.claude/skills/shorts-editor-skill/scripts')")
         lines.append("from reelkit import (")
         lines.append("    Reel, TOP, UPPER, LOWER, BOTTOM, BEHIND, CENTER,")
         lines.append("    sans_w, sans_g, sans_r, sans_gold, sans_hero, sans_slam,")

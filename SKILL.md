@@ -1,5 +1,5 @@
 ---
-name: anan-reel-edit
+name: shorts-editor-skill
 description: End-to-end automated viral editing of Anan's Bangla/Banglish trading & finance reels (2160x3840 @ 25fps) in Premiere Pro + After Effects + Remotion. Uses the 2025-2026 Motion-Designer 3D Camera Plane & FinTech Edit Style (Keanu Visuals, Capitaojack, Devin Jatho, Iman Gadzhi, Umar Ashraf / TradeZella, MagnatesMedia). Covers silence-chunked Bangla transcription + separate SRT generation for E:\Anan\NEW (transcribe_new.py), 5-font modern FinTech typography (Plus Jakarta Sans, Syne, Anton/Bebas Neue, Instrument Serif Italic, JetBrains Mono, Hind Siliguri Bold), 4-Node After Effects 3D Camera Rig moving across an Infinite 3D Grid Plane (ae3d.py), 3D Trim Paths Flowcharts, Multi-Plane Z-Parallax Glass UI Cards (aecards.py), RSMB Pro, Audio Stop-Drops, and 4-layer SFX.
 ---
 
@@ -20,7 +20,7 @@ Before writing any edit plan or running any script, **read both canonical refere
 ### Step 1 — Transcribe & Generate Separate SRTs + Claude Brief (`transcribe_new.py`)
 Run:
 ```bash
-python "C:/Users/btaza/.claude/skills/anan-reel-edit/scripts/transcribe_new.py" --dir "E:/Anan/NEW"
+python "C:/Users/btaza/.claude/skills/shorts-editor-skill/scripts/transcribe_new.py" --dir "E:/Anan/NEW"
 ```
 - **Outputs created automatically in `E:\Anan\NEW`:**
   - `E:\Anan\NEW\srt\<video_name>.srt` & `r<N>.srt` — Clean phrase-level SubRip `.srt` files.
@@ -60,13 +60,13 @@ python "C:/Users/btaza/.claude/skills/anan-reel-edit/scripts/transcribe_new.py" 
 ### Step 2b — Fetch Missing Semantic Stock B-Roll (`stock_fetch.py`)
 Whenever local `references/stock.md` lacks an exact visual match for the spoken word/emotion (e.g. gym lifting, breakup, roulette/gambling, hourglass patience, mobile gaming), fetch from Pexels + Pixabay automatically (works with or without API keys):
 ```bash
-python "C:/Users/btaza/.claude/skills/anan-reel-edit/scripts/stock_fetch.py" "man lifting weights dark gym" --source both --orientation portrait --limit 1 --download --use-for "gym workout, discipline"
+python "C:/Users/btaza/.claude/skills/shorts-editor-skill/scripts/stock_fetch.py" "man lifting weights dark gym" --source both --orientation portrait --limit 1 --download --use-for "gym workout, discipline"
 ```
 Always visually inspect downloaded clips before placing them on the timeline (reject flat white-background cartoons).
 
 ---
 
-## 2. Script Reference (`C:\Users\btaza\.claude\skills\anan-reel-edit\scripts\`)
+## 2. Script Reference (`C:\Users\btaza\.claude\skills\shorts-editor-skill\scripts\`)
 
 | Script | Purpose |
 |---|---|

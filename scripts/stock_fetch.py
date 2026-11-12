@@ -1,6 +1,6 @@
 """Pexels & Pixabay Stock Video/Photo Search & Downloader (`stock_fetch.py`).
 
-Shared asset fetcher for Claude and Antigravity in `anan-reel-edit`.
+Shared asset fetcher for Claude and Antigravity in `shorts-editor-skill`.
 Searches and downloads high-resolution stock videos and photos directly into `E:/Anan/Assets/`
 and prints exact `(filename, width, height, duration)` ready for `reelkit.py` (`r.card` / `r.full`).
 

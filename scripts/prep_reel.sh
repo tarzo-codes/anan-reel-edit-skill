@@ -1,7 +1,7 @@
 #!/bin/bash
 # prep_reel.sh N  - run in the batch's edit folder: plan -> cut-outs -> AE text (delete+rebuild RN_TEXT).
 # Then: ae_save_project, and in Premiere: var BUILD_DATA=".../rN_prem.json"; $.evalFile(".../jsx/build_reel.jsx");
-K="C:/Users/btaza/.claude/skills/anan-reel-edit/scripts"; N=$1
+K="C:/Users/btaza/.claude/skills/shorts-editor-skill/scripts"; N=$1
 python "plan_r$N.py" || exit 1
 python - "$N" "$K" <<'PY'
 import json,subprocess,sys

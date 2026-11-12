@@ -79,7 +79,7 @@ Every 3D plane, glass UI node, kinetic word cluster, and chart vector obeys a st
 
 ## 2. The 2025–2026 Motion-Designer Font Stack (Installed & Verified)
 
-All fonts below are installed as static TTFs in `C:\Users\btaza\AppData\Local\Microsoft\Windows\Fonts` and backed up in `E:\Anan\Assets\Fonts`, wired directly into [`reelkit.py`](file:///C:/Users/btaza/.claude/skills/anan-reel-edit/scripts/reelkit.py), [`ae3d.py`](file:///C:/Users/btaza/.claude/skills/anan-reel-edit/scripts/ae3d.py), and [`aecards.py`](file:///C:/Users/btaza/.claude/skills/anan-reel-edit/scripts/aecards.py):
+All fonts below are installed as static TTFs in `C:\Users\btaza\AppData\Local\Microsoft\Windows\Fonts` and backed up in `E:\Anan\Assets\Fonts`, wired directly into [`reelkit.py`](file:///C:/Users/btaza/.claude/skills/shorts-editor-skill/scripts/reelkit.py), [`ae3d.py`](file:///C:/Users/btaza/.claude/skills/shorts-editor-skill/scripts/ae3d.py), and [`aecards.py`](file:///C:/Users/btaza/.claude/skills/shorts-editor-skill/scripts/aecards.py):
 
 ### 2.1 The 5-Font Hierarchy (`2160×3840` Vertical 4K Canvas)
 

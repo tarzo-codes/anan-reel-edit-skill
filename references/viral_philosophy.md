@@ -1,6 +1,6 @@
 # WEB-VIRAL TRADING PHILOSOPHY — 2026 PLAYBOOK (`E:\Anan`)
 
-> **Canonical Reference:** This document lives at both `E:\Anan\VIRAL_PHILOSOPHY.md` and `C:\Users\btaza\.claude\skills\anan-reel-edit\references\viral_philosophy.md` (keep them identical). Pair with `references/style.md` for the exact Premiere Pro + After Effects + Remotion specs.
+> **Canonical Reference:** This document lives at both `E:\Anan\VIRAL_PHILOSOPHY.md` and `C:\Users\btaza\.claude\skills\shorts-editor-skill\references\viral_philosophy.md` (keep them identical). Pair with `references/style.md` for the exact Premiere Pro + After Effects + Remotion specs.
 > **Updated 8-11-2026 from web research** (platform statements, policies, benchmark datasets, one controlled pacing study): full report with sources at `E:\Anan\reports\Viral short form editing 2026.md`, notes in `E:\Anan\research_notes\Viral short form editing 2026\`.
 > **Style influences** (aesthetic inspiration only; their exact edit recipes are NOT verified by research): Umar Ashraf / TradeZella (anti-guru, risk math), Devin Jatho (kinetic type, glass HUDs), Iman Gadzhi (dark luxury, weight-based caption emphasis, slow push-ins), TJR (raw honesty, shows losses too), MagnatesMedia (3D parallax, documentary sound).
 
