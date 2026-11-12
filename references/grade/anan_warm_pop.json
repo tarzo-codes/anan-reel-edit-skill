@@ -1,0 +1,9 @@
+{
+  "name": "Anan Warm Pop v2",
+  "lumetri": {
+    "Temperature": 10, "Tint": 2, "Saturation": 104,
+    "Exposure": 0.2, "Contrast": 24, "Highlights": -24, "Shadows": 10, "Whites": 6, "Blacks": -20,
+    "Faded Film": 0, "Sharpen": 18, "Vibrance": 30, "Saturation#2": 100,
+    "Amount": -0.8, "Midpoint": 55, "Feather": 60
+  }
+}
