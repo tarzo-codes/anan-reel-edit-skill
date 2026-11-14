@@ -64,6 +64,14 @@ Then: **originality**. Facebook (Jul 2025), Instagram (Apr 2026), YouTube (Oct 2
 
 ---
 
+### Hook E: Breaking news / famous person scandal (researched, 13-11-2026)
+Research first (WebSearch), then lead with the most extreme TRUE framing: famous name + shocking number + conflict.
+Example (reel 3): Jensen Huang admitted an affair (8 Nov 2026) -> Forbes: wife could get ~$75B; Nvidia lost ~$190-490B in
+the sell-off -> header "১টা AFFAIR-এর দাম / $75 BILLION" over a BREAKING NEWS bar, his photo + the woman's photo with a red
+ring in the first second, the headline card when he says the number. Score 5 hook options (curiosity gap, number shock,
+villain / conflict, famous face, stakes for the viewer) and keep the estimate wording honest ("could", "?").
+Tools: `scripts/news_visuals.py` (photos + headline cards), SKILL.md section 18 for the effects stack.
+
 ## 4. The 5-beat retention architecture (master cut **40-60 s**)
 
 ```

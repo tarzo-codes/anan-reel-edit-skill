@@ -88,6 +88,10 @@ Always visually inspect downloaded clips before placing them on the timeline (re
 | **`jsx/limiters_pass.jsx`** | Adds a default Hard Limiter to every non-music audio track (build_reel now does it itself). |
 | **`jsx/render_reels.jsx`** | Queues reels in AME with `assets/Anan Reel 4K H264 80Mbps.epr` (MP4, 80/100 Mbps, AAC 320k), in/out reset first. |
 | **`jsx/export_frames.jsx`** | QE check-frame export (`EXP={dir,seq,tag,times}`), own call after `openSequence`. |
+| **`news_visuals.py`** | **News & people visuals (no keys).** `person "Name"` -> Wikipedia lead photo + Wikimedia Commons photos (licence logged) into `Assets/news/faces/`; `news "query"` -> Bing News RSS -> each article's og:image, a ready 1920-wide headline card (`<k>_card.png`) and a headless-Edge page capture. Writes `Assets/news/news_index.json`. Skips Wikipedia redirects (spouse -> famous partner) and Commons files that don't name the person. |
+| **`fetch_effects.py`** | Overlay-effects pack from Pexels/Pixabay (light leak, film burn, flare, glitch, VHS, dust, smoke, sparks, bokeh, lightning, explosion, rain, particles) -> `Assets/Effects/<cat>/`, audio stripped, `index.json` + CREDITS. Set `"rejected": true` on a clip that isn't on black and rerun to refill (id stays blacklisted). |
+| **`gen_overlays.py`** | Generates what stock lacks on black, as ProRes 4444 alpha: `confetti_burst`, `confetti_fall`, `money_rain`, `coin_rain`, `white_flash`, `red_flash` -> `Assets/Effects/generated/`. |
+| **`fetch_png_pack.py`** | 100-piece PNG pack: 70 Noto emoji (512 px, `PNG/emoji_pack/`) + 30 drawn editor PNGs (`PNG/editor/`: red rings, arrows, X / tick, underline, marker, speech / thought bubble, BREAKING NEWS bar, LIVE, SUBSCRIBE, starburst, explosion burst, price tag, verified badge, notification badge, crosshair, play button, cursor, progress bar, chart up / down, vignette / bottom shade / REC frame at 2160x3840). `PNG/pack_index.json`. |
 
 
 ---
@@ -255,3 +259,78 @@ Copy `scripts/hc_handcam_template_10-11.py` -> batch `edit/hc.py` and `scripts/h
   user's out points after running it.
 - `scripts/render_cutouts.py N ...` renders every cut-out a plan asked for; re-run the plan afterwards (a plan run before the
   renders writes no cut-outs into rN_prem.json).
+
+### 18. News / Real-People Reels, Researched Hooks & the "Extreme" FX Layer (13-11-2026, user)
+When the script mentions **news, a company event or a named person** (CEO, celebrity, politician, his wife...):
+1. **Research the story before planning** (WebSearch, 2-3 queries): what happened, when, the biggest verified number,
+   who is involved, what outlets say. Note which claims are confirmed vs estimates ("could get $75B" is a Forbes estimate,
+   not a settlement). Never put an unverified claim on screen as fact.
+2. **Pull the visuals:** `python scripts/news_visuals.py all --person "<Name>" --person "<Name 2>" --news "<story query>" --news "<market query>" --n 4`.
+   Look at the contact sheet: photos must be the right person (no free photo of a private spouse -> use an emoji /
+   silhouette + label, never a stranger's face); prefer cards with a share image and a big outlet. Each time he names the
+   person -> his photo card (white border, slight tilt, crosshair / red ring / verified badge sticker, name label);
+   each time he states the news fact or number -> the matching headline card on the word.
+3. **Find the best hook (score 5 options):** curiosity gap, the shocking number, conflict / villain, a named famous
+   person, stakes for the viewer. Pick the most extreme option that is still TRUE, and make it the header for the first
+   2-5 s (e.g. reel 3: "১টা AFFAIR-এর দাম / $75 BILLION" over a BREAKING NEWS bar). Keep his spoken first line; the
+   header carries the researched angle.
+4. **Hook must be "full of effects" (first 3 s):** white flash + sub-bass boom + glitch on frame 1, the person / news
+   photo slams in (Scale 125 -> 100 in 0.12 s, Opacity 0 -> 100 in 0.08 s), camera-shutter / swoosh on every new visual,
+   the number pop with cash-register + bass drop and money rain. Something new every 0.6-1.2 s.
+5. **Through the reel:** every new visual gets an SFX (whoosh / swoosh in, pop for stickers, kaching / coins for money,
+   error + red flash + glitch for losses, glass break for heartbreak, gasp / boom for "unimaginable", fanfare + confetti
+   for a win, notification for the CTA). Effect clips on V9/V10 in Screen (generated alpha .mov in Normal), scaled to
+   fill; stickers (emoji_pack / editor) big (600-900 px) between header and captions, 0.6-1.3 s each.
+6. **SFX levels:** measure each file (ffmpeg ebur128) and set clip gain = target - measured: hits ~-17 LUFS,
+   whooshes / pops ~-21, beds / ambience (clock, applause) ~-26; cap tails at ~2.4 s; SFX lanes A2/A4/A5/A6 (A1 voice, A3 music).
+7. Reference build: `D:/TarZo/Edits/test/edit/render_fx.py` (Edge-rendered full-frame PNG overlays + `fx_plan.json`) and
+   `build_fx.py` (MCP overwrite-only placement, lanes, slam keys, blend, loudness-matched SFX).
+
+**Asset packs (D:/TarZo/Edits/Assets):** `SFX/` 100 sounds in 55 categories (`index.json`), `PNG/emoji_pack` (70) +
+`PNG/editor` (30) + older `PNG/emoji` (49) / `PNG/emoji_anim` (animated), `Effects/` 50 overlay clips (`index.json`, 16 categories
+incl. `generated/`), `news/` cards + `news/faces/` people photos.
+
+### 19. SPLIT Style (13-11-2026, user) - story on top, face on the bottom, static caption band in the middle
+Use for news / story / "look at this" reels (second version of the same edit, or the main style when the visual IS the story).
+- **Layout (2160x3840):** top `0-1760` = the thing he talks about; middle band `1760-2080` = static dark bar with 10 px
+  green rules top + bottom and the Bangla chunk text (Hind 150, auto-fit to 2000 px) - the band never moves, chunks are
+  contiguous (each ends where the next starts) so it never blinks; bottom `2080-3840` = his face (A-roll Position
+  y ~2840 px so the face centre lands ~2880; punch-ins still work).
+- **Top half is never empty:** existing B-roll is re-centred (Position y 880) and cropped at the band
+  (Crop bottom = 50 - 880 / (srcH x scale x 1.06) %, the 1.06 covers the slow push); person / news cards he names get a
+  panel (blurred zoomed copy of the image behind, sharp white-bordered card in front, red name label); every remaining
+  gap is filled with rotating story stills (his photos, the outlets' share images) in <= 2.6 s pieces.
+- **Keep:** number pops (top half, y 880), stickers (y ~1500), effect overlays (full frame), all SFX / music / voice.
+  **Drop:** the persistent header (the top half carries the story) - the hook header still covers the first 2-5 s.
+- **Build:** `render_split.py` (Edge-rendered panels + band captions -> split_plan.json) then `build_split.py`
+  (duplicates the finished sequence to `<name>_SPLIT`, removes header / captions / full-frame cards, reframes A-roll +
+  B-roll, places panels on V4 and band captions on V5). Reference: `D:/TarZo/Edits/test/edit/`.
+
+### 20. DYLAN Style (14-11-2026, user) - Dylan Page (@dylan.page.) news-explainer look
+Studied from his Shorts (Russell Brand / hijackers / Kim Jong-un, 43-73 s). Use for news / "this just happened" reels.
+SPLIT (19) is the sibling; DYLAN differs in: no caption band, a white hook pill on the seam, small sentence subtitles,
+full-frame screenshot beats, and almost no FX.
+- **Layout (2160x3840):** top `0-1760` = the story (real footage / photo / CCTV, cover-filled edge to edge - no white
+  border, no name label); bottom `1760-3840` = his face (A-roll Position y 2840, same as SPLIT). The halves butt
+  directly - no band, no rules.
+- **Seam pill (the hook label):** white rounded pill centred ON y 1760, black heavy text (PlusJakartaSans-ExtraBold,
+  Bangla falls back to Hind) ~116 px, emoji after the text (Noto `flushed` + `siren` from PNG/emoji_pack), soft shadow;
+  a small **red date tab** (#E5191F, white 58 px, e.g. "13 Nov" = the story date) sits on its top edge. Text = the
+  researched hook number/claim (reel 3: "$75 BILLION-এর DIVORCE 😳🚨"; pure news: "🚨 BREAKING NEWS 🚨"), max ~24
+  chars. Same label the whole reel; hidden during full-frame shots and gone for the CTA tail (last ~2-4 s).
+- **Captions:** plain sentence subtitles (5-7 words, break on sentence starts / ? / !), white 88 px on a dark rounded
+  box (0.9), top at y 430, max width 1560, centred, contiguous. No chunk colours, no behind-head words, no number pops.
+- **Rotation:** split screen most of the time; top visual changes every 1.5-3.5 s (measured); when he reads a headline
+  / post / tweet -> that card FULL FRAME on light grey (#f4f4f6) for the whole beat (face hidden, caption stays, pill
+  hidden); optional full-face open (pill at y ~760) when there is no strong first visual. Face never hard-cuts away
+  except for those shots.
+- **Annotations:** red arrow / red ring (PNG/editor `red_arrow_*`, `red_ring`) pointing at the person in the footage
+  when he says "look at this guy" - only with a known target position, never guessed.
+- **Drop:** persistent header, stickers, money/confetti rain, effect overlays, flashes, chunk captions. **Audio:**
+  voice-first; music bed kept low, SFX lanes muted (his audio was not checked - captured muted). Length 40-75 s on his
+  channel, but Anan's own data (00.) favours 30-40 s - cut tight.
+- **Build:** `render_dylan.py [--label ".." --date ".." --breaking]` (Edge-rendered pill / captions / top panels /
+  full-frame shots -> dylan_plan.json) -> `preview_dylan.py <t...>` (Pillow contact sheet from the real A-roll + B-roll,
+  check before touching Premiere) -> `build_dylan.py` (duplicates the pass-3 sequence to `<name>_DYLAN`, clears V4+,
+  reframes A-roll / B-roll like SPLIT, places top/shots V4, captions V5, pill V6, mutes A2/A4/A5/A6).
+  Reference: `D:/TarZo/Edits/test/edit/`.
